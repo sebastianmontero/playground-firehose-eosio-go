@@ -221,7 +221,7 @@ func newBlockRange(raw string) (out blockRange) {
 
 	out.start, _ = strconv.ParseUint(parts[0], 10, 64)
 	out.end, _ = strconv.ParseUint(parts[1], 10, 64)
-	ensure(out.start < out.end, "the <range> start value %q value comes after end value %q", parts[0], parts[1])
+	ensure(out.start < out.end || out.end == 0, "the <range> start value %q value comes after end value %q", parts[0], parts[1])
 	return
 }
 
